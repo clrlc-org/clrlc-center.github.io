@@ -9,8 +9,9 @@
     body { margin: 0; font-family: 'Inter', sans-serif; background: #ffffff; color: #111; line-height: 1.6; }
     header { background: #0b3d91; color: #fff; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
     nav a { color: #fff; margin-left: 20px; text-decoration: none; font-weight: 500; }
-    .hero { padding: 100px 40px; background: #f5f7fb; text-align: center; }
-    .hero h1 { font-size: 40px; margin-bottom: 10px; color: #0b3d91; }
+    .hero { position: relative; padding: 100px 40px; background: url('assets/Picture.jpeg') no-repeat center center; background-size: cover; text-align: center; color: white; }
+    .hero::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.4); z-index: 0; }
+    .hero h1, .hero p { position: relative; z-index: 1; }
     .section { padding: 60px 40px; max-width: 900px; margin: auto; }
     h2 { color: #0b3d91; font-size: 28px; margin-bottom: 15px; }
     footer { text-align: center; padding: 20px; margin-top: 40px; background: #0b3d91; color: white; }
