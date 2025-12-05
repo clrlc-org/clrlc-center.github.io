@@ -8,11 +8,12 @@
   <style>
     body { margin: 0; font-family: 'Inter', sans-serif; background: #ffffff; color: #111; line-height: 1.6; }
     header { background: #0b3d91; color: #fff; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
-    nav a { color: #fff; margin-left: 20px; text-decoration: none; font-weight: 500; }
+    nav a { color: #fff; margin-left: 20px; text-decoration: none; font-weight: 500; cursor: pointer; }
     .hero { position: relative; padding: 100px 40px; background-image: url('Picture.jpeg'); background-repeat: no-repeat; background-position: center center; background-size: cover; text-align: center; color: white; }
     .hero::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 0; }
     .hero h1, .hero p { position: relative; z-index: 1; }
-    .section { padding: 60px 40px; max-width: 900px; margin: auto; }
+    .section { padding: 60px 40px; max-width: 900px; margin: auto; display: none; opacity: 0; transition: opacity 0.5s ease-in-out; }
+    .section.active { display: block; opacity: 1; }
     h2 { color: #0b3d91; font-size: 28px; margin-bottom: 15px; }
     footer { text-align: center; padding: 20px; margin-top: 40px; background: #0b3d91; color: white; }
     .form-group { margin-bottom: 15px; }
@@ -27,6 +28,7 @@
     <div class="logo">CLRLC Center</div>
     <nav>
       <a href="#about">About</a>
+      <a href="#mission">Mission</a>
       <a href="#whatwedo">What We Do</a>
       <a href="#whoweare">Who We Are</a>
       <a href="#events">Events</a>
@@ -37,23 +39,22 @@
 
   <section class="hero">
     <h1>Center for Low-Resource Languages & Cultures</h1>
-    <p>Advancing research and technology for low-resource languages and cultures beyond Africa.</p>
+    <p>Advancing research and technology for low-resource languages and cultures in Africa and beyond.</p>
   </section>
 
-  <section id="about" class="section">
-    <h2>About Center for Low-Resource Languages & Cultures (CLRLC) </h2>
+  <section id="about" class="section active">
+    <h2>About Center for Low-Resource Languages & Cultures (CLRLC)</h2>
     <p>Center for Low-Resource Languages & Cultures (CLRLC) is dedicated to advancing research, technology, and innovation for the thousands of languages and cultures in Africa and beyond that remain under-resourced in today’s AI ecosystem. We work to strengthen linguistic and cultural diversity by developing AI-driven tools, resources, and collaborative research projects that empower communities, scholars, and technologists around the world.</p>
 
     <p>CLRLC stands for inclusion, representation, and innovation. We believe that every language and every culture deserves to be supported and celebrated in the global technological landscape.</p>
-</section>
+  </section>
 
   <section id="mission" class="section">
     <h2>Our Mission</h2>
     <p>There are over 7,000 languages in the world, many of which are endangered and under-resourced in modern technology. Our mission is to advance research across these languages and the diverse cultures they represent, ensuring they are not left behind in the rapidly evolving AI landscape. We aim to promote linguistic and cultural inclusion by developing AI-driven tools, resources, and technologies that support, preserve, and celebrate low-resource languages and their rich cultural heritage.</p>
 
-    <p>As part of our mission, we actively host workshops at major AI and NLP conferences to bring together researchers, students, and community members to exchange ideas, showcase work, and foster cross-disciplinary collaboration. We also aim to inspire and engage young people especially those from communities with low-resource languages to participate in research, contribute to language preservation, and explore how technology can support their linguistic and cultural heritage.</p>
-</section>
-
+    <p>As part of our mission, we actively host workshops at major AI and NLP conferences to bring together researchers, students, and community members to exchange ideas, showcase work, and foster cross-disciplinary collaboration. We also aim to inspire and engage young people—especially those from communities with low-resource languages—to participate in research, contribute to language preservation, and explore how technology can support their linguistic and cultural heritage.</p>
+  </section>
 
   <section id="whatwedo" class="section">
     <h2>What We Do</h2>
@@ -90,5 +91,27 @@
     © 2025 Center for Low-Resource Languages & Cultures
   </footer>
 
+  <script>
+    const sections = document.querySelectorAll('.section');
+    const navLinks = document.querySelectorAll('nav a');
+
+    function showSection(event) {
+      event.preventDefault();
+      const targetId = this.getAttribute('href').substring(1);
+
+      sections.forEach(section => {
+        if (section.id === targetId) {
+          section.classList.add('active');
+        } else {
+          section.classList.remove('active');
+        }
+      });
+
+      // Scroll to top of page for better UX
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    navLinks.forEach(link => link.addEventListener('click', showSection));
+  </script>
 </body>
 </html>
