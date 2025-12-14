@@ -10,18 +10,29 @@
     body { margin: 0; font-family: 'Inter', sans-serif; background: #ffffff; color: #111; line-height: 1.6; }
     header { background: #0b3d91; color: #fff; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
     nav a { color: #fff; margin-left: 20px; text-decoration: none; font-weight: 500; cursor: pointer; }
-    .hero { position: relative; padding: 100px 40px; background-image: url('Picture.jpeg'); background-repeat: no-repeat; background-position: center center; background-size: cover; text-align: center; color: white; }
+    .hero { position: relative; padding: 120px 40px; background-image: url('Picture.jpeg'); background-repeat: no-repeat; background-position: center center; background-size: cover; text-align: center; color: white; }
     .hero::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 0; }
     .hero h1, .hero p { position: relative; z-index: 1; }
-    .section { padding: 60px 40px; max-width: 900px; margin: auto; display: none; opacity: 0; transition: opacity 0.5s ease-in-out; }
+    /* Wider sections */
+    .section { 
+      padding: 60px 40px; 
+      max-width: 1200px; /* wider page layout */
+      width: 95%;        /* small margin on sides */
+      margin: auto; 
+      display: none; 
+      opacity: 0; 
+      transition: opacity 0.5s ease-in-out; 
+    }
     .section.active { display: block; opacity: 1; }
-    h2 { color: #0b3d91; font-size: 28px; margin-bottom: 15px; }
-    h3 { margin-top: 25px; }
+    h2 { color: #0b3d91; font-size: 32px; margin-bottom: 20px; }
+    h3 { margin-top: 30px; color: #0b3d91; }
     footer { text-align: center; padding: 20px; margin-top: 40px; background: #0b3d91; color: white; }
     .form-group { margin-bottom: 15px; }
     input, textarea { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px; }
     button { background: #0b3d91; color: white; padding: 12px 20px; border: none; border-radius: 6px; cursor: pointer; font-size: 16px; }
     button:hover { background: #062c6c; }
+    img { max-width: 100%; border-radius: 10px; }
+    .community-img { margin-bottom: 20px; }
   </style>
 </head>
 <body>
@@ -54,7 +65,6 @@
     initiative dedicated to advancing linguistic research and language technologies for
     under-resourced languages and cultures worldwide.
   </p>
-
   <p>
     We work at the intersection of linguistics, artificial intelligence, and community engagement,
     developing tools, datasets, and research frameworks that support linguistic diversity,
@@ -69,7 +79,6 @@
     in digital technologies and AI systems. Our mission is to ensure that these languages
     and the cultures they embody are not excluded from technological progress.
   </p>
-
   <p>
     CLRLC advances inclusive research, ethical data practices, and culturally grounded
     language technologies. Through international workshops, conference engagement,
@@ -96,13 +105,11 @@
 
 <section id="events" class="section">
   <h2>Events</h2>
-
   <p>
     We organise and contribute to workshops, conference sessions, webinars,
     and training programmes focused on low-resource languages and cultures
     within artificial intelligence (AI).
   </p>
-
   <p>
     Our events bring together researchers, students, and community members to
     exchange ideas, share research, and build sustainable collaborations.
@@ -113,7 +120,7 @@
     <img 
       src="mexico_city.jpg" 
       alt="CLRLC-LLMs Workshop at NeurIPS 2025"
-      style="width: 100%; max-width: 600px; border-radius: 8px; margin-bottom: 15px;"
+      style="width: 100%; max-width: 600px; margin-bottom: 15px;"
     />
     <p>
       <strong>CLRLC-LLMs Workshop @ NeurIPS 2025</strong><br />
@@ -131,11 +138,10 @@
         target="_blank"
         style="color: #0b3d91; text-decoration: underline;"
       >
-        View Workshop Website
+        Read more
       </a>
     </p>
   </div>
-
   <p style="margin-top: 25px;">
     <em>Upcoming events will be announced soon.</em>
   </p>
@@ -143,6 +149,7 @@
 
 <section id="community" class="section">
   <h2>Community</h2>
+  <img src="community_photo.jpg" alt="CLRLC Community Members" class="community-img" />
   <p>
     CLRLC is a global community of researchers, linguists, technologists, and
     AI practitioners working on low-resource languages and cultures.
@@ -178,7 +185,7 @@
          target="_blank" 
          style="text-decoration: none; color: #0b3d91; font-size: 18px;">
         <i class="fab fa-linkedin" style="font-size: 24px; vertical-align: middle; margin-right: 8px;"></i>
-        LinkedIn – Center for Low-Resource Languages & Cultures
+        LinkedIn 
       </a>
     </p>
     <p>
@@ -186,7 +193,7 @@
          target="_blank" 
          style="text-decoration: none; color: #0b3d91; font-size: 18px;">
         <i class="fa-brands fa-x-twitter" style="font-size: 24px; vertical-align: middle; margin-right: 8px;"></i>
-        X (Twitter) – @clrlc_center
+        X (Twitter) 
       </a>
     </p>
   </div>
@@ -203,11 +210,7 @@
   function showSection(event) {
     event.preventDefault();
     const targetId = this.getAttribute('href').substring(1);
-
-    sections.forEach(section => {
-      section.classList.toggle('active', section.id === targetId);
-    });
-
+    sections.forEach(section => section.classList.toggle('active', section.id === targetId));
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
